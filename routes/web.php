@@ -21,6 +21,9 @@ Route::get('/', function() {
 });
 Route::get('/', [PostController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
-   
-//viewヘルパはcontrollerやweb.phpからviewフォルダー内のファイルを表示したいときに使います。 
-
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::post('/posts', [PostController::class, 'store']);
+//{post}⇩
+Route::get('/posts/{post}', [PostController::class ,'show']);
+Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+Route::put('/posts/{post}', [PostController::class, 'update']);
