@@ -5,6 +5,7 @@
         <title>CalendarEdit</title>
     </head>
     <body>
+        <x-app-layout>
         <h1 class="title">CalendarEdit</h1>
         <div class="content"></div>
         <form action="/posts/{{ $post->id }}" method="POST">
@@ -23,5 +24,6 @@
         <div class="back">
             [<a href="/">back</a>]
         </div>
+        </x-app-layout>
     </body>
 </html>
