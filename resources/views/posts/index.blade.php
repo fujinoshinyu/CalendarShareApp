@@ -7,6 +7,10 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+        <x-app-layout>
+        <x-slot name="header">
+            Header
+        </x-slot>
         <h1>Calendar</h1>
         <a href='/posts/create'>create</a>
         <div class='posts'>
@@ -35,5 +39,8 @@
           <div class='paginate'>
               {{ $posts->links() }}
           </div>
+          <p>⇩Current User⇩</p>
+          <div>{{ Auth::user()->name }}</div>
+        </x-app-layout>
       </body>
   </html>

@@ -5,6 +5,10 @@
         <title>CalendarCreate</title>
     </head>
     <body>
+        <x-app-layout>
+            <x-slot name="header">
+                Header
+            </x-slot>
         <h1>CalendarName</h1>
         <form action="/posts" method="POST">
             @csrf
@@ -31,5 +35,8 @@
         <div class="back">
             [<a href="/">back</a>]
         </div>
+        <p>⇩Current User⇩</p>
+        <div>{{ Auth::user()->name }}</div>
+        </x-app-layout>
     </body>
 </html>
