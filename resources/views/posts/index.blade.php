@@ -11,8 +11,8 @@
         <x-slot name="header">
             Header
         </x-slot>
-        <h1>Calendar</h1>
-        <a href='/posts/create'>create</a>
+        <h1>Let' Create Calendar</h1>
+        <a href='/calendar'>CREATE</a>
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
