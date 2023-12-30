@@ -3,7 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+
 
 
 /*
@@ -40,6 +42,15 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::put('/posts/{post}', 'update')->name('update'); 
     Route::delete('/posts/{post}', 'delete')->name('delete'); 
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
+});
+
+
+//DM
+Route::controller(HomeController::class)->middleware(['auth'])->group(function(){
+    Route::get('/home', 'home')->name('home');
+    Route::post('/add', 'add')->name('add');
+    Route::get('/result/ajax', 'getData');
+
 });
 require __DIR__.'/auth.php';
 $user = Auth::user();
