@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -52,6 +53,16 @@ Route::controller(HomeController::class)->middleware(['auth'])->group(function()
     Route::get('/result/ajax', 'getData');
 
 });
+
+//calendar
+Route::get('/calendar', [EventController::class, 'show'])->name("show");
+Route::post('/calendar/create', [EventController::class, 'create'])->name("create");
+Route::post('/calendar/get',  [EventController::class, 'get'])->name("get");
+
+
+
+
+
 require __DIR__.'/auth.php';
 $user = Auth::user();
 
