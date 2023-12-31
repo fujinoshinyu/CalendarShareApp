@@ -9,6 +9,13 @@
         @vite(['resources/css/app.css', 'resources/js/app.js']) <!-- vite用の記述忘れずに -->
     </head>
     <body>
+        
+        <x-app-layout>
+            <x-slot name="header">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('CREATE CALENDAR') }}
+                </h2>
+            </x-slot>
         <!-- 以下のdivタグ内にカレンダーを表示 -->
         <div id='calendar'></div>
         
@@ -33,6 +40,7 @@
                     </select>
                     <button type="button" onclick="closeAddModal()">キャンセル</button>
                     <button type="submit">決定</button>
+        </x-app-layout>
                 </form>
             </div>
         </div>
