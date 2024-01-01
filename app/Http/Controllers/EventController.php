@@ -7,12 +7,19 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
+<<<<<<< HEAD
+    public function show(){
+        return view("calendars/calendar");
+    }
+    
+=======
     //カレンダー表示
     public function show()
     {
         return view("calendars/calendar");
     }
     // 新規予定追加
+>>>>>>> master
     public function create(Request $request, Event $event){
         // バリデーション（eventsテーブルの中でNULLを許容していないものをrequired）
         $request->validate([
@@ -21,7 +28,11 @@ class EventController extends Controller
             'end_date' => 'required',
             'event_color' => 'required',
         ]);
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> master
         // 登録処理
         $event->event_title = $request->input('event_title');
         $event->event_body = $request->input('event_body');
@@ -34,8 +45,12 @@ class EventController extends Controller
         // カレンダー表示画面にリダイレクトする
         return redirect(route("show"));
     }
+<<<<<<< HEAD
+    
+=======
 //（ここまで）
 //（ここから）追記
+>>>>>>> master
     // DBから予定取得
     public function get(Request $request, Event $event){
         // バリデーション
@@ -64,10 +79,15 @@ class EventController extends Controller
             ->where('end_date', '>', $start_date)
             ->where('start_date', '<', $end_date) // AND条件
             ->get();
+<<<<<<< HEAD
+
+}
+=======
     }
 //（ここまで）
 //（ここから）追記
     // 予定の更新
+>>>>>>> master
     public function update(Request $request, Event $event){
         $input = new Event();
 
@@ -84,6 +104,10 @@ class EventController extends Controller
         // カレンダー表示画面にリダイレクトする
         return redirect(route("show"));
     }
+<<<<<<< HEAD
+
+}
+=======
 //（ここまで）
 //（ここから）追記
     // 予定の削除
@@ -96,3 +120,4 @@ class EventController extends Controller
     }
 //（ここまで）
 }
+>>>>>>> master

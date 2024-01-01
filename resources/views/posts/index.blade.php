@@ -8,11 +8,24 @@
     </head>
     <body>
         <x-app-layout>
+<<<<<<< HEAD
+            <x-slot name="header">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('This is HOME') }}
+                </h2>
+            </x-slot>
+            
+            <div id='calendar'></div>
+            
+        <h1>Calendar</h1>
+        <a href='/posts/create'>create</a>
+=======
         <x-slot name="header">
             Header
         </x-slot>
         <h1>Let' Create Calendar</h1>
         <a href='/calendar'>CREATE</a>
+>>>>>>> master
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>

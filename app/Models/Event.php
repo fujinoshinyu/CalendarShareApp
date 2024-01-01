@@ -9,7 +9,10 @@ class Event extends Model
 {
     use HasFactory;
     
+<<<<<<< HEAD
+=======
     // （ここから）追記
+>>>>>>> master
     // Controllerのfill用
     protected $fillable = [
         'event_title',
@@ -19,5 +22,8 @@ class Event extends Model
         'event_color',
         'event_border_color',
     ];
+<<<<<<< HEAD
+=======
 // （ここまで）
+>>>>>>> master
 }

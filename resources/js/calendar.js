@@ -1,8 +1,14 @@
+<<<<<<< HEAD
+//import '@fullcalendar/core/vdom'; // （for Vite）ver6には不要なので、エラーが出たらここを消す。
+=======
+>>>>>>> master
 import axios from "axios";
 import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from '@fullcalendar/timegrid';
 
+<<<<<<< HEAD
+=======
 // （ここから）追記1
 // 日付を-1してYYYY-MM-DDの書式で返すメソッド
 function formatDate(date, pos) {
@@ -14,6 +20,7 @@ function formatDate(date, pos) {
 }
 // （ここまで）
 
+>>>>>>> master
 // カレンダーを表示させたいタグのidを取得
 var calendarEl = document.getElementById("calendar");
 
@@ -26,6 +33,8 @@ if (calendarEl !== null) {
     
         // カレンダー表示
         initialView: "dayGridMonth", // 最初に表示させるページの形式
+<<<<<<< HEAD
+=======
         // （ここから）追記1
     customButtons: { // カスタムボタン
         eventAddButton: { // 新規予定追加ボタン
@@ -45,10 +54,16 @@ if (calendarEl !== null) {
         }
     },
 //（ここまで）
+>>>>>>> master
         headerToolbar: { // ヘッダーの設定
             // コンマのみで区切るとページ表示時に間が空かず、半角スペースで区切ると間が空く（半角があるかないかで表示が変わることに注意）
             start: "prev,next today", // ヘッダー左（前月、次月、今日の順番で左から配置）
             center: "title", // ヘッダー中央（今表示している月、年）
+<<<<<<< HEAD
+            end: "dayGridMonth,timeGridWeek", // ヘッダー右（月形式、時間形式）
+        },
+        height: "auto", // 高さをウィンドウサイズに揃える
+=======
             end: "eventAddButton dayGridMonth,timeGridWeek", // ヘッダー右（月形式、時間形式）
         },
         height: "auto", // 高さをウィンドウサイズに揃える
@@ -91,10 +106,13 @@ if (calendarEl !== null) {
         document.getElementById('modal-update').style.display = 'flex';
     },
 // （ここまで）
+>>>>>>> master
     });
     
     // カレンダーのレンダリング
     calendar.render();
+<<<<<<< HEAD
+=======
     
     //（ここから）追記
 // 新規予定追加モーダルを閉じる
@@ -117,4 +135,5 @@ window.deleteEvent = function(){
     }
 }
 // （ここまで）
+>>>>>>> master
 }
