@@ -58,6 +58,7 @@ Route::controller(HomeController::class)->middleware(['auth'])->group(function()
 Route::get('/calendar', [EventController::class, 'show'])->name("show");
 Route::post('/calendar/create', [EventController::class, 'create'])->name("create");
 Route::post('/calendar/get',  [EventController::class, 'get'])->name("get");
+Route::put('/calendar/update', [EventController::class, 'update'])->name("update"); 
 
 
 

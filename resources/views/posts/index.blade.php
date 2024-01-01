@@ -8,9 +8,14 @@
     </head>
     <body>
         <x-app-layout>
-        <x-slot name="header">
-            Header
-        </x-slot>
+            <x-slot name="header">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __('This is HOME') }}
+                </h2>
+            </x-slot>
+            
+            <div id='calendar'></div>
+            
         <h1>Calendar</h1>
         <a href='/posts/create'>create</a>
         <div class='posts'>
