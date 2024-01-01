@@ -3,22 +3,36 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
         <title>CreateCalendar</title>
+=======
+        <title>FullCalendar</title>
+>>>>>>> master
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         @vite(['resources/css/app.css', 'resources/js/app.js']) <!-- vite用の記述忘れずに -->
     </head>
     <body>
+<<<<<<< HEAD
         
         <x-app-layout>
             <x-slot name="header">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                     {{ __('CREATE CALENDAR') }}
                 </h2>
+=======
+        <x-app-layout>
+            <x-slot name="header">
+                CleateYourCalendar!!
+>>>>>>> master
             </x-slot>
         <!-- 以下のdivタグ内にカレンダーを表示 -->
         <div id='calendar'></div>
         
+<<<<<<< HEAD
+=======
+        <!--（ここから）追記1 -->
+>>>>>>> master
         <!-- カレンダー新規追加モーダル -->
         <div id="modal-add" class="modal">
             <div class="modal-contents">
@@ -43,7 +57,12 @@
                 </form>
             </div>
         </div>
+<<<<<<< HEAD
         
+=======
+<!-- （ここまで） -->
+<!--（ここから）追記1 -->
+>>>>>>> master
         <!-- カレンダー編集モーダル -->
         <div id="modal-update" class="modal">
             <div class="modal-contents">
@@ -67,10 +86,25 @@
                     <button type="button" onclick="closeUpdateModal()">キャンセル</button>
                     <button type="submit">決定</button>
                 </form>
+<<<<<<< HEAD
             </div>
         </div>
         </x-app-layout>
 <!-- （ここまで） -->
+=======
+                <!--（ここから）追記 -->
+                <form id="delete-form" method="post" action="{{ route('delete') }}">
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" id="delete-id" name="id" value="" />
+                    <button class="delete" type="button" onclick="deleteEvent()">削除</button>
+                </form>
+<!-- （ここまで） -->
+            </div>
+        </div>
+<!--（ここまで） -->
+        </x-app-layout>
+>>>>>>> master
     </body>
 </html>
 
@@ -82,6 +116,10 @@
 .fc-event-title-container{
     cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 /* モーダルのオーバーレイ */
 .modal{
     display: none; /* モーダル開くとflexに変更（ここの切り替えでモーダルの表示非表示をコントロール） */
@@ -129,6 +167,10 @@ textarea{
     border-radius: 5px;
     resize: none;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 select{
     display: block;
     width: 20%;
@@ -137,4 +179,9 @@ select{
     border: 1px solid black;
     border-radius: 5px;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+<!--（ここまで） -->
+>>>>>>> master

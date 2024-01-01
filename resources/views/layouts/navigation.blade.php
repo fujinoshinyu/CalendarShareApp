@@ -19,10 +19,14 @@
                         {{ __('HOME') }}
                     </x-nav-link>
                     <x-nav-link :href="route('show')" :active="request()->routeIs('show')">
+<<<<<<< HEAD
                         {{ __('CREATE CALENDAR') }}
                     </x-nav-link>
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('DM') }}
+=======
+                        {{ __('CREATE') }}
+>>>>>>> master
                     </x-nav-link>
                 </div>
             </div>
