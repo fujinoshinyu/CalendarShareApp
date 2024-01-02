@@ -11,7 +11,17 @@
         <x-slot name="header">
             Header
         </x-slot>
-        <h1>Calendar</h1>
+        
+        <div id='calendar'></div>
+        
+        <style scoped>
+            #calendar{
+                height: 800px;
+                width: 1000px;
+                padding: 70px;
+            }
+        </style>
+        
         <a href='/posts/create'>create</a>
         <div class='posts'>
             @foreach ($posts as $post)
