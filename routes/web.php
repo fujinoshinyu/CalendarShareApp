@@ -54,3 +54,5 @@ Route::put('/calendar/update', [EventController::class, 'update'])->name("update
 
 require __DIR__.'/auth.php';
 $user = Auth::user();
+
+$id = Auth::id();
