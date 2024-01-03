@@ -60,8 +60,7 @@ Route::post('/calendar/create', [EventController::class, 'create'])->name("creat
 Route::post('/calendar/get',  [EventController::class, 'get'])->name("get");
 Route::put('/calendar/update', [EventController::class, 'update'])->name("update"); // 予定の更新
 Route::delete('/calendar/delete', [EventController::class, 'delete'])->name("delete");
-
-
+//画像
 
 require __DIR__.'/auth.php';
 $user = Auth::user();

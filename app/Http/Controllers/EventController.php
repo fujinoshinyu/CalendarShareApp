@@ -7,11 +7,14 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
+    
+    
     public function show(){
         return view("calendars/calendar");
     }
     
     public function create(Request $request, Event $event){
+        
         // バリデーション（eventsテーブルの中でNULLを許容していないものをrequired）
         $request->validate([
             'event_title' => 'required',
@@ -28,6 +31,8 @@ class EventController extends Controller
         $event->event_color = $request->input('event_color');
         $event->event_border_color = $request->input('event_color');
         $event->save();
+        
+
 
         // カレンダー表示画面にリダイレクトする
         return redirect(route("show"));

@@ -30,7 +30,7 @@
         <!-- カレンダー新規追加モーダル -->
         <div id="modal-add" class="modal">
             <div class="modal-contents">
-                <form method="POST" action="{{ route('create') }}">
+                <form method="POST" action="{{ route('create') }}" enctype="multipart/form-data">
                     @csrf
                     <input id="new-id" type="hidden" name="id" value="" />
                     <label for="event_title">タイトル</label>
@@ -41,6 +41,16 @@
                     <input id="new-end_date" class="input-date" type="date" name="end_date" value="" />
                     <label for="event_body" style="display: block">内容</label>
                     <textarea id="new-event_body" name="event_body" rows="3" value=""></textarea>
+                    
+                    画像：<br>
+                    <input type="file" name="image"><p>
+                    @if($errors->has('image'))
+                        @foreach($errors->get('image') as $message)
+                			{{ $message }}<br>
+                		@endforeach
+                    @endif
+                    <br>
+                    
                     <label for="event_color">背景色</label>
                     <select id="new-event_color" name="event_color">
                         <option value="blue" selected>青</option>
@@ -55,7 +65,7 @@
 <!-- カレンダー編集モーダル -->
         <div id="modal-update" class="modal">
             <div class="modal-contents">
-                <form method="POST" action="{{ route('update') }}" >
+                <form method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <input type="hidden" id="id" name="id" value="" />
@@ -67,6 +77,16 @@
                     <input class="input-date" type="date" id="end_date" name="end_date" value="" />
                     <label for="event_body" style="display: block">内容</label>
                     <textarea id="event_body" name="event_body" rows="3" value=""></textarea>
+                    
+                    画像：<br>
+                    <input type="file" name="image"><p>
+                    @if($errors->has('image'))
+                        @foreach($errors->get('image') as $message)
+                			{{ $message }}<br>
+                		@endforeach
+                    @endif
+                    <br>
+
                     <label for="event_color">背景色</label>
                     <select id="event_color" name="event_color">
                         <option value="blue">青</option>
@@ -113,7 +133,7 @@
 /* モーダル */
 .modal-contents{
     background-color: white;
-    height: 430px;
+    height: 510px;
     width: 600px;
     padding: 20px;
 }
