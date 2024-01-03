@@ -14,9 +14,19 @@
                 </h2>
             </x-slot>
             
+            <p>Current User</p>
+            <div>{{ Auth::user()->name }}</div>
+            
             <div id='calendar'></div>
-
-        <h1>Calendar</h1>
+            <style scoped>
+                #calendar{
+                    height: 600px;
+                    width: 900px;
+                    padding: 30px;
+                }
+            </style scoped>
+            
+            
         <a href='/posts/create'>create</a>
         <div class='posts'>
             @foreach ($posts as $post)
@@ -44,8 +54,6 @@
           <div class='paginate'>
               {{ $posts->links() }}
           </div>
-          <p>⇩Current User⇩</p>
-          <div>{{ Auth::user()->name }}</div>
         </x-app-layout>
       </body>
   </html>
