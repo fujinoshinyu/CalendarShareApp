@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('DM') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('image')" :active="request()->routeIs('image')">
+                        {{ __('Profile') }}
+                    </x-nav-link>
                 </div>
             </div>
 

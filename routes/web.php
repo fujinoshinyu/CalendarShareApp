@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ImageUploadController;
 
 
 
@@ -60,7 +61,11 @@ Route::post('/calendar/create', [EventController::class, 'create'])->name("creat
 Route::post('/calendar/get',  [EventController::class, 'get'])->name("get");
 Route::put('/calendar/update', [EventController::class, 'update'])->name("update"); // 予定の更新
 Route::delete('/calendar/delete', [EventController::class, 'delete'])->name("delete");
-//画像
+
+//profile
+Route::get('/image_upload', [ImageUploadController::class, 'image'])->name("image");
+Route::post('/image_upload_confirm', [ImageUploadController::class, 'confirm'])->name("confirm");
+Route::post('/image_upload_complete', [ImageUploadController::class, 'complete'])->name("complete");
 
 require __DIR__.'/auth.php';
 $user = Auth::user();
