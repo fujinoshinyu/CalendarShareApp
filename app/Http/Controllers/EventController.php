@@ -71,4 +71,5 @@ class EventController extends Controller
         // カレンダー表示画面にリダイレクトする
         return redirect(route("show"));
     }
+
 }
