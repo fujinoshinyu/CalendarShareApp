@@ -3,13 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>FullCalendar</title>
+        <title>CreateCalendar</title>
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         @vite(['resources/css/app.css', 'resources/js/app.js']) <!-- vite用の記述忘れずに -->
     </head>
     <body>
-        
+
         <x-app-layout>
             <x-slot name="header">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -18,19 +18,11 @@
             </x-slot>
         <!-- 以下のdivタグ内にカレンダーを表示 -->
         <div id='calendar'></div>
-        
-        <!--doneボタン -->
-        <a href='/'>
-            <x-primary-button class="ml-3">
-                {{ __('DONE') }}
-            </x-primary-button>
-        </a>
-        
-        
+
         <!-- カレンダー新規追加モーダル -->
         <div id="modal-add" class="modal">
             <div class="modal-contents">
-                <form method="POST" action="{{ route('create') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('create') }}">
                     @csrf
                     <input id="new-id" type="hidden" name="id" value="" />
                     <label for="event_title">タイトル</label>
@@ -41,16 +33,6 @@
                     <input id="new-end_date" class="input-date" type="date" name="end_date" value="" />
                     <label for="event_body" style="display: block">内容</label>
                     <textarea id="new-event_body" name="event_body" rows="3" value=""></textarea>
-                    
-                    画像：<br>
-                    <input type="file" name="image"><p>
-                    @if($errors->has('image'))
-                        @foreach($errors->get('image') as $message)
-                			{{ $message }}<br>
-                		@endforeach
-                    @endif
-                    <br>
-                    
                     <label for="event_color">背景色</label>
                     <select id="new-event_color" name="event_color">
                         <option value="blue" selected>青</option>
@@ -61,11 +43,11 @@
                 </form>
             </div>
         </div>
-<!-- （ここまで） -->
-<!-- カレンダー編集モーダル -->
+
+        <!-- カレンダー編集モーダル -->
         <div id="modal-update" class="modal">
             <div class="modal-contents">
-                <form method="POST" action="{{ route('update') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('update') }}" >
                     @csrf
                     @method('PUT')
                     <input type="hidden" id="id" name="id" value="" />
@@ -77,16 +59,6 @@
                     <input class="input-date" type="date" id="end_date" name="end_date" value="" />
                     <label for="event_body" style="display: block">内容</label>
                     <textarea id="event_body" name="event_body" rows="3" value=""></textarea>
-                    
-                    画像：<br>
-                    <input type="file" name="image"><p>
-                    @if($errors->has('image'))
-                        @foreach($errors->get('image') as $message)
-                			{{ $message }}<br>
-                		@endforeach
-                    @endif
-                    <br>
-
                     <label for="event_color">背景色</label>
                     <select id="event_color" name="event_color">
                         <option value="blue">青</option>
@@ -95,23 +67,16 @@
                     <button type="button" onclick="closeUpdateModal()">キャンセル</button>
                     <button type="submit">決定</button>
                 </form>
-                
-                <form id="delete-form" method="post" action="{{ route('delete') }}">
-                    @csrf
-                    @method('DELETE')
-                    <input type="hidden" id="delete-id" name="id" value="" />
-                    <button class="delete" type="button" onclick="deleteEvent()">削除</button>
-                </form>
             </div>
         </div>
         </x-app-layout>
+<!-- （ここまで） -->
     </body>
 </html>
 
-
 <!-- （ここから）追記2 -->
 <style scoped>
-
+/* 予定の上ではカーソルがポインターになる */
 .fc-event-title-container{
     cursor: pointer;
 }
@@ -133,11 +98,10 @@
 /* モーダル */
 .modal-contents{
     background-color: white;
-    height: 510px;
+    height: 400px;
     width: 600px;
     padding: 20px;
 }
-
 /* 以下モーダル内要素のデザイン調整 */
 input{
     padding: 2px;
@@ -170,9 +134,4 @@ select{
     border: 1px solid black;
     border-radius: 5px;
 }
-
-.ml-3{
-        float: right;
-        margin: 20px;
-    }
 </style>
