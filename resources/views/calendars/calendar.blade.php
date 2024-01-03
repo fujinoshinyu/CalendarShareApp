@@ -3,22 +3,21 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>CreateCalendar</title>
+        <title>FullCalendar</title>
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         @vite(['resources/css/app.css', 'resources/js/app.js']) <!-- vite用の記述忘れずに -->
     </head>
     <body>
-
         <x-app-layout>
             <x-slot name="header">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ __('CREATE CALENDAR') }}
+                    {{ __('fill out event') }}
                 </h2>
             </x-slot>
         <!-- 以下のdivタグ内にカレンダーを表示 -->
         <div id='calendar'></div>
-
+        
         <!-- カレンダー新規追加モーダル -->
         <div id="modal-add" class="modal">
             <div class="modal-contents">
@@ -43,7 +42,7 @@
                 </form>
             </div>
         </div>
-
+        
         <!-- カレンダー編集モーダル -->
         <div id="modal-update" class="modal">
             <div class="modal-contents">
@@ -67,19 +66,19 @@
                     <button type="button" onclick="closeUpdateModal()">キャンセル</button>
                     <button type="submit">決定</button>
                 </form>
+                <form id="delete-form" method="post" action="{{ route('delete') }}">
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" id="delete-id" name="id" value="" />
+                    <button class="delete" type="button" onclick="deleteEvent()">削除</button>
+                </form>
             </div>
         </div>
         </x-app-layout>
-<!-- （ここまで） -->
     </body>
 </html>
 
-<!-- （ここから）追記2 -->
 <style scoped>
-/* 予定の上ではカーソルがポインターになる */
-.fc-event-title-container{
-    cursor: pointer;
-}
 /* モーダルのオーバーレイ */
 .modal{
     display: none; /* モーダル開くとflexに変更（ここの切り替えでモーダルの表示非表示をコントロール） */
@@ -102,6 +101,7 @@
     width: 600px;
     padding: 20px;
 }
+
 /* 以下モーダル内要素のデザイン調整 */
 input{
     padding: 2px;
